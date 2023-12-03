@@ -26,11 +26,14 @@ export class EditBookComponent implements OnInit {
     })
   }
   ngOnInit(): void { }
-  onSubmit(): any {
-    this.crudService.EditBook(this.bookForm.value)
-      .subscribe({
-        error: (err) => console.log(err)
-      })
-    this.ngZone.run(() => this.router.navigateByUrl('/books-list'));
+  onSubmit(): void {
+    this.crudService.EditBook(this.bookForm.value).subscribe (
+      () => {
+        console.log('Book added succesfully.');
+        this.ngZone.run(() => this.router.navigateByUrl('/books-list'));
+      },
+      (error) => {
+        console.error('Error editing book:', error);
+      });
   }
 }

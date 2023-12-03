@@ -39,12 +39,13 @@ bookRoute.route('/delete-book/:id').delete((req, res) => {
 
 // Edit a book
 bookRoute.route('/edit-book').post((req, res) => {
-  Book.create(req.body).then(() => {
+  Book.findByIdAndUpdate(req.params.id, req.body).then(() => {
     console.log('Book edited successfully.');
-    res.status(200);
+    res.status(200).send('Book edited successfully.');
   })
     .catch((error) => {
-      console.error(`Could not save book: ${error}`);
+      console.error(`Could not edit book: ${error}`);
+      res.status(500).send(`Could not Edit book ${error}`)
     })
 })
 module.exports = bookRoute;

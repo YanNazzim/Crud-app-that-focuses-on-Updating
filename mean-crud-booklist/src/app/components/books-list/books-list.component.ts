@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from './../../service/crud.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-books-list',
@@ -10,7 +11,7 @@ export class BooksListComponent implements OnInit {
 
   Books: any = [];
 
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService: CrudService, private router: Router) { }
 
   ngOnInit(): void {
     this.crudService.GetBooks().subscribe(res => {
@@ -22,14 +23,11 @@ export class BooksListComponent implements OnInit {
     this.crudService.DeleteBook(id)
       .subscribe(res => {
         console.log(res)
+        this.Books = this.Books.filter((book: any) => book._id !== id)
       })
-    location.reload();
+      location.reload();
   }
-  onEdit(id: any): any {
-    this.crudService.EditBook(id)
-      .subscribe(res => {
-        console.log(res)
-      })
-    location.reload();
+  onEdit(id: any): void {
+    this.router.navigate(['/edit-book', id]);
   }
 }
