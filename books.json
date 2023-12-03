@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "6118fdf7dda011305494474a"
+  },
+  "isbn": "123442123, 97885654453443",
+  "title": "Learn how to build modern web application with MEAN stack",
+  "author": "Didin J.",
+  "description": "The comprehensive step by step tutorial on how to build MEAN (MongoDB, Express.js, Angular 5 and Node.js) stack web application from scratch",
+  "published_year": "2017",
+  "publisher": "Djamware.com",
+  "updated_date": {
+    "$date": "2021-08-15T11:43:51.066Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611901b04701c0143c98faf5"
+  },
+  "isbn": "1617294756",
+  "title": "Getting MEAN with Mongo, Express, Angular, and Node",
+  "author": "Simon Holmes",
+  "description": "This book covers the fundamentals of creating a single-page application with AngularJS showing how to build a modular, scalable and maintainable application",
+  "published_year": "2019",
+  "publisher": "Manning",
+  "updated_date": {
+    "$date": "2021-08-15T11:59:51.066Z"
+  },
+  "__v": 0
+}]
